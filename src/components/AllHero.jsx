@@ -1,3 +1,4 @@
+import wifu from "../assets/image.png";
 const HeroSection = () => {
   return (
     <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
