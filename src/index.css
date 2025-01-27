@@ -32,3 +32,44 @@ html {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   /* Hover shadow effect */
 }
+
+@font-face {
+  font-family: 'fount1';
+  src: url('../public/fonts/DrawKidsRegular-9M34j.ttf');
+}
+
+@font-face {
+  font-family: 'fount2';
+  src: url('../public/fonts/MaberaDemoVersionRegular-vnJ1Z.ttf');
+}
+
+@font-face {
+  font-family: 'fount3';
+  src: url('../public/fonts/SharedArenaDemo-nAa7V.ttf');
+}
+
+@font-face {
+  font-family: 'fount4';
+  src: url('../public/fonts/StarlightHorizonItalic-KV8rX.ttf');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'fount4';
+}
+
+p {
+  font-family: 'fount1';
+}
+
+button {
+  font-family: 'fount4';
+}
+
+a {
+  font-family: 'fount3';
+}
