@@ -14,7 +14,6 @@ const Home = () => {
       <AllHero />
       <AllRoadmap />
       <AllToknomics />
-
       <Services />
       <ContactUs />
     </div>
