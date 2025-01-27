@@ -66,10 +66,12 @@ p {
   font-family: 'fount1';
 }
 
-button {
+button,
+textarea {
   font-family: 'fount4';
 }
 
-a {
+a,
+input {
   font-family: 'fount3';
 }
