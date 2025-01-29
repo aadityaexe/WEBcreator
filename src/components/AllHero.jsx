@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import wifu from "../assets/image.png";
+import components from "../All-Hero-Section/MapFile/AllHeroMapping";
+
 const HeroSection = () => {
   const navigate = useNavigate();
   return (
