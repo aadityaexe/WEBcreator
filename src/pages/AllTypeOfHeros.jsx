@@ -1,6 +1,5 @@
 import Title from "../components/Title";
 import Hero1 from "../All-Hero-Section/Hero-1/Hero1";
-
 const AllTypeOfHeros = () => {
   return (
     <div className="min-h-screen px-4 md:px-8 lg:px-16 pt-10 space-y-16">
@@ -21,5 +20,4 @@ const AllTypeOfHeros = () => {
     </div>
   );
 };
-
 export default AllTypeOfHeros;

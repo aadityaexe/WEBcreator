@@ -34,11 +34,11 @@ const HeroSection = () => {
           </div>
         ))}
       </div>
-      <div
-        onClick={() => navigate("/all-heros")}
-        className="max-w-7xl mx-auto py-5 text-center"
-      >
-        <button className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform">
+      <div className="max-w-7xl mx-auto py-5 text-center">
+        <button
+          onClick={() => navigate("/all-heros")}
+          className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
+        >
           See All Heroes
         </button>
       </div>
