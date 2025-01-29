@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import AllTypeOfHeros from "./pages/AllTypeOfHeros.jsx";
-
+import AllTypeOfRoadmap from "./pages/AllTypeOfRoadmap.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +28,14 @@ const router = createBrowserRouter([
         element: (
           <>
             <AllTypeOfHeros />
+          </>
+        ),
+      },
+      {
+        path: "/all-roadmap",
+        element: (
+          <>
+            <AllTypeOfRoadmap />
           </>
         ),
       },
