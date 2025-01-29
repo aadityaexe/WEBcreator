@@ -108,7 +108,6 @@ export default function SplitView() {
   const [sections, setSections] = useState({
     [ItemType.HERO]: null,
     [ItemType.SOCIALICON]: null,
-    [ItemType.NUMBER]: null,
     [ItemType.TOKENOMICS]: null,
     [ItemType.ROADMAP]: null,
     [ItemType.FAQ]: null,
@@ -129,7 +128,7 @@ export default function SplitView() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex flex-col md:flex-row h-full pt-20 p-5 gap-5">
+      <div className="flex flex-col md:flex-row h-full pt-20 p-5 ">
         {/* Left Panel */}
         <div
           className="w-full md:w-2/4 space-y-5 overflow-y-auto"
@@ -140,31 +139,21 @@ export default function SplitView() {
             <div key={type} className="bg-gray-200 p-5 rounded-lg space-y-3">
               <h3 className="font-bold text-2xl capitalize">{type}</h3>
               {items.map((component) => (
-                <DraggableItem
-                  key={component.id}
-                  item={component}
-                  type={component.type}
-                />
+                <div key={component.id}>
+                  <DraggableItem
+                    key={component.id}
+                    item={component}
+                    type={component.type}
+                  />
+                </div>
               ))}
             </div>
           ))}
-
-          {/* Numbers Section */}
-          <div className="bg-gray-200 p-5 rounded-lg space-y-3">
-            <h3 className="font-bold text-lg">Numbers</h3>
-            {numbers.map((number, index) => (
-              <DraggableItem
-                key={index}
-                item={{ id: index, content: number }}
-                type={ItemType.NUMBER}
-              />
-            ))}
-          </div>
         </div>
 
         {/* Right Panel */}
         <div
-          className="w-full md:w-2/4 space-y-5 overflow-y-auto"
+          className="w-full md:w-2/4  overflow-y-auto"
           style={{ maxHeight: "calc(100vh - 20px)" }}
         >
           {Object.entries(sections).map(([sectionType]) => (
