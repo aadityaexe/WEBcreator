@@ -2,7 +2,11 @@ import { useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Hero1 from "../All-Hero-Section/Hero-1/Hero1";
-
+import Hero2 from "../All-Hero-Section/Hero-2/Hero2";
+import Hero3 from "../All-Hero-Section/Hero-3/Hero3";
+import Hero4 from "../All-Hero-Section/Hero-4/Hero4";
+import Hero5 from "../All-Hero-Section/Hero-5/Hero5";
+import Hero6 from "../All-Hero-Section/Hero-6/Hero6";
 const ItemType = {
   HERO: "hero",
   NUMBER: "number",
@@ -15,18 +19,11 @@ const ItemType = {
 
 // Component definitions
 const HeroComponent1 = () => <Hero1 />;
-const HeroComponent2 = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Hero 2</div>
-);
-const HeroComponent3 = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Hero 3</div>
-);
-const HeroComponent4 = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Hero 4</div>
-);
-const HeroComponent5 = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Hero 5</div>
-);
+const HeroComponent2 = () => <Hero2 />;
+const HeroComponent3 = () => <Hero3 />;
+const HeroComponent4 = () => <Hero4 />;
+const HeroComponent5 = () => <Hero5 />;
+const HeroComponent6 = () => <Hero6 />;
 const RoadmapComponent = () => (
   <div className="p-3 bg-white rounded-lg shadow">Roadmap</div>
 );
@@ -49,11 +46,12 @@ const components = [
   { id: 3, type: ItemType.HERO, content: <HeroComponent3 /> },
   { id: 4, type: ItemType.HERO, content: <HeroComponent4 /> },
   { id: 5, type: ItemType.HERO, content: <HeroComponent5 /> },
-  { id: 6, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
-  { id: 7, type: ItemType.FAQ, content: <FaqComponent /> },
-  { id: 8, type: ItemType.FOOTER, content: <FooterComponent /> },
-  { id: 9, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
-  { id: 10, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
+  { id: 6, type: ItemType.HERO, content: <HeroComponent6 /> },
+  { id: 7, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
+  { id: 8, type: ItemType.FAQ, content: <FaqComponent /> },
+  { id: 9, type: ItemType.FOOTER, content: <FooterComponent /> },
+  { id: 10, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
+  { id: 11, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
