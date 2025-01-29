@@ -1,5 +1,14 @@
 import Title from "../components/Title";
+<<<<<<< HEAD
 import components from "../All-Hero-Section/MapFile/AllHeroMapping";
+=======
+import Hero1 from "../All-Hero-Section/Hero-1/Hero1";
+import Hero2 from "../All-Hero-Section/Hero-2/Hero2";
+import Hero3 from "../All-Hero-Section/Hero-3/Hero3";
+import Hero4 from "../All-Hero-Section/Hero-4/Hero4";
+import Hero5 from "../All-Hero-Section/Hero-5/Hero5";
+import Hero6 from "../All-Hero-Section/Hero-6/Hero6";
+>>>>>>> 84eff1959e4c6783cd8557f2da59c8287954ef09
 
 const AllTypeOfHeros = () => {
   return (
