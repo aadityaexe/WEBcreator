@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import AllTypeOfHeros from "./pages/AllTypeOfHeros.jsx";
 import AllTypeOfRoadmap from "./pages/AllTypeOfRoadmap.jsx";
+import CreateWebsite from "./pages/CreateWebsite.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
         element: (
           <>
             <AllTypeOfRoadmap />
+          </>
+        ),
+      },
+      {
+        path: "/new-website",
+        element: (
+          <>
+            <CreateWebsite />
           </>
         ),
       },
