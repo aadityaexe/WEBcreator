@@ -1,7 +1,8 @@
 import tryImage from "../assets/try.png";
 import { FaRocket, FaEthereum } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 min-h-screen text-white flex items-center">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-8">
@@ -14,7 +15,10 @@ const Hero = () => {
             The ultimate platform for funky tokens that redefine the way you
             experience crypto.
           </p>
-          <div className="flex justify-center md:justify-start space-x-4">
+          <div
+            onClick={() => navigate("/new-website")}
+            className="flex justify-center md:justify-start space-x-4"
+          >
             <a
               href="#explore"
               className="bg-pink-600 hover:bg-pink-700 transition-all text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2"
