@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import wifu from "../assets/image.png";
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
       <div className="max-w-7xl mx-auto text-center">
@@ -32,7 +34,10 @@ const HeroSection = () => {
           </div>
         ))}
       </div>
-      <div className="max-w-7xl mx-auto py-5 text-center">
+      <div
+        onClick={() => navigate("/all-heros")}
+        className="max-w-7xl mx-auto py-5 text-center"
+      >
         <button className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform">
           See All Heroes
         </button>
