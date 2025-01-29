@@ -1,4 +1,4 @@
-import React from "react";
+
 import tryImage from "../../assets/try.png";
 
 const Hero1 = () => {
