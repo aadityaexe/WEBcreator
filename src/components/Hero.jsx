@@ -91,17 +91,18 @@ const Hero = () => {
           </p>
           <div
             ref={buttonsRef}
-            onClick={() => navigate("/new-website")}
             className="flex justify-center md:justify-start space-x-4"
           >
             <a
               href="#explore"
+              onClick={() => navigate("/new-website")}
               className="bg-pink-600 hover:bg-pink-700 transition-all text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2"
             >
               <FaRocket />
               <span>Explore Now</span>
             </a>
             <a
+              onClick={() => navigate("/enter-website-info")}
               href="#learn-more"
               className="bg-gray-800 hover:bg-gray-700 transition-all text-pink-300 font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2"
             >

@@ -1,6 +1,6 @@
 export default function Tokenomics1() {
   return (
-    <section className="bg-gradient-to-r from-pink-500 to-gray-800 text-white py-16 px-8">
+    <section className="bg-gradient-to-r from-pink-500 to-gray-800 text-white w-full py-16 px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Tokenomics</h2>
         <p className="text-lg mb-8">
