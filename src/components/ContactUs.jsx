@@ -1,8 +1,46 @@
+import { useEffect } from "react";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const ContactUs = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(
+      ".contact-info",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".contact-info",
+          start: "top 80%",
+          end: "top 50%",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".form-container",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: ".form-container",
+          start: "top 80%",
+          end: "top 50%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
-    <section id="contact" className=" py-16 px-8 text-white">
+    <section id="contact" className="py-16 px-8 text-white">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Get in Touch</h2>
         <p className="text-lg mb-12">
@@ -12,21 +50,21 @@ const ContactUs = () => {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* Contact Info */}
-        <div className="flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div className="contact-info flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
           <FiPhone size={24} className="text-pink-400" />
           <div>
             <h4 className="font-semibold">Phone</h4>
             <p>+123 456 7890</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div className="contact-info flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
           <FiMail size={24} className="text-pink-400" />
           <div>
             <h4 className="font-semibold">Email</h4>
             <p>info@example.com</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
+        <div className="contact-info flex items-center gap-4 p-6 bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform">
           <FiMapPin size={24} className="text-pink-400" />
           <div>
             <h4 className="font-semibold">Address</h4>
@@ -34,7 +72,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className="mt-16 max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg">
+      <div className="mt-16 max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg form-container">
         <form className="space-y-6">
           <div className="flex gap-4">
             <input
