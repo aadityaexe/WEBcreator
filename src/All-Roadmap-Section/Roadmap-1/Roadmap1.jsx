@@ -25,9 +25,9 @@ const roadmapData = [
 
 const Roadmap1 = () => {
   return (
-    <div className="relative py-16 bg-gradient-to-r from-pink-500 to-gray-800 text-white">
+    <div className="relative py-16 w-full bg-gradient-to-r from-pink-500 to-gray-800 text-white">
       <h2 className="text-4xl font-bold text-center mb-12">Roadmap</h2>
-      <div className="max-w-4xl mx-auto relative flex flex-col items-center">
+      <div className="max-w-4xl mx-auto relative flex gap-5 flex-col items-center">
         <div
           className="absolute w-2 bg-gray-400 rounded-full h-full left-1/2 transform -translate-x-1/2"
           style={{ borderRadius: "50% 50% 50% 50%" }}
