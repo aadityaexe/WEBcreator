@@ -1,7 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const AllRoadmap = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Scroll animations for the grid items
+    gsap.fromTo(
+      ".roadmap-item",
+      {
+        opacity: 0,
+        x: -200, // Start from the left
+      },
+      {
+        opacity: 1,
+        x: 0, // End at normal position
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".roadmap-item",
+          start: "top 80%", // Start the animation when the item is 80% from the top
+          end: "top 20%",
+          scrub: true,
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".roadmap-item-right",
+      {
+        opacity: 0,
+        x: 200, // Start from the right
+      },
+      {
+        opacity: 1,
+        x: 0, // End at normal position
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".roadmap-item-right",
+          start: "top 80%",
+          end: "top 20%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
       <div className="max-w-7xl mx-auto text-center">
@@ -18,7 +65,9 @@ const AllRoadmap = () => {
         {[1, 2, 3].map((item, index) => (
           <div
             key={index}
-            className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+            className={`roadmap-item rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow ${
+              index % 2 === 0 ? "" : "roadmap-item-right"
+            }`}
           >
             <img
               src={`https://via.placeholder.com/300x200?text=Hero+${item}`}
@@ -34,6 +83,7 @@ const AllRoadmap = () => {
           </div>
         ))}
       </div>
+
       <div className="max-w-7xl mx-auto py-5 text-center">
         <button
           onClick={() => navigate("/all-roadmap")}
