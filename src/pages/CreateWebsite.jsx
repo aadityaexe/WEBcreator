@@ -7,6 +7,7 @@ import Hero3 from "../All-Hero-Section/Hero-3/Hero3";
 import Hero4 from "../All-Hero-Section/Hero-4/Hero4";
 import Hero5 from "../All-Hero-Section/Hero-5/Hero5";
 import Hero6 from "../All-Hero-Section/Hero-6/Hero6";
+import Roadmap1 from "../All-Roadmap-Section/Roadmap-1/Roadmap1";
 const ItemType = {
   HERO: "hero",
   NUMBER: "number",
@@ -24,18 +25,16 @@ const HeroComponent3 = () => <Hero3 />;
 const HeroComponent4 = () => <Hero4 />;
 const HeroComponent5 = () => <Hero5 />;
 const HeroComponent6 = () => <Hero6 />;
-const RoadmapComponent = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Roadmap</div>
-);
+const RoadmapComponent = () => <Roadmap1 />;
 const FaqComponent = () => (
-  <div className="p-3 bg-white rounded-lg shadow">FAQ</div>
+  <div className=" bg-white rounded-lg shadow">FAQ</div>
 );
 const FooterComponent = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Footer</div>
+  <div className=" bg-white rounded-lg shadow">Footer</div>
 );
 const SocialIconComponent = () => <Hero2 />;
 const TokenomicsComponent = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Tokenomics</div>
+  <div className=" bg-white rounded-lg shadow">Tokenomics</div>
 );
 
 const components = [
