@@ -8,12 +8,15 @@ import AllTypeOfHeros from "./pages/AllTypeOfHeros.jsx";
 import AllTypeOfRoadmap from "./pages/AllTypeOfRoadmap.jsx";
 import CreateWebsite from "./pages/CreateWebsite.jsx";
 import EnterWebsiteInfo from "./pages/EnterWebsiteInfo.jsx";
+import { ContentProvider } from "./Store/ContentValues.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
+        <ContentProvider>
         <App />
+        </ContentProvider>
       </>
     ),
     children: [

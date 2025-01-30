@@ -31,7 +31,6 @@ const Home = () => {
       <Hero />
       <AboutUs />
       <MeemTokenWebsites websites={websites} />
-
       <AllHero />
       <AllRoadmap />
       <AllToknomics />

@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { useContent } from "../Store/ContentValues";
 
 export default function EnterWebsiteInfo() {
+
+  const {  setContent } = useContent();
+  const { run } = useContent(); 
+
   const [data, setData] = useState({
     hero: {
       title: "",
@@ -25,6 +30,8 @@ export default function EnterWebsiteInfo() {
 
   const handleSubmit = () => {
     console.log("Submitted Data:", data);
+    // setContent(data);
+    run(data);
     alert("Data Submitted Successfully!");
   };
 
