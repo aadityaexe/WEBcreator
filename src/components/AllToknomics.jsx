@@ -1,4 +1,29 @@
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
+
 const AllToknomics = () => {
+  useEffect(() => {
+    // Targeting the container elements for scroll animations
+    gsap.fromTo(
+      ".tokonomics-item",
+      {
+        opacity: 0,
+        y: 100, // starting from below
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+          trigger: ".tokonomics-item", // element that triggers animation
+          start: "top bottom", // when top of element hits bottom of viewport
+          end: "top center", // ends when the top of element reaches center of viewport
+          scrub: true, // scrubs the animation with the scroll position
+          markers: false, // optional markers for debugging
+        },
+      }
+    );
+  }, []);
+
   return (
     <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
       <div className="max-w-7xl mx-auto text-center">
@@ -15,7 +40,7 @@ const AllToknomics = () => {
         {[1, 2, 3].map((item, index) => (
           <div
             key={index}
-            className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+            className="tokonomics-item rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
           >
             <img
               src={`https://via.placeholder.com/300x200?text=Hero+${item}`}
