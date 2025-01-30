@@ -8,14 +8,14 @@ export const ContentProvider = ({ children }) => {
     // Add your state values here
     const [content, setContent] = useState({});
 
-     // Function to update content
-     const run = (newData) => {
-        setContent((prev) => {
-            const updatedContent = { ...prev, ...newData };
-            console.log("Updated Content (Inside Function):", updatedContent); // ✅ Log here
-            return updatedContent;
-        });
+    const run = (newData) => {
+        setContent((prevContent) => ({
+            ...prevContent, // ✅ Keep previous data
+            ...newData, // ✅ Update with new data
+        }));
+        console.log("Updated Content:", newData); // ✅ Log new form data only
     };
+    
     // Values to be provided
     const values = {
         content,
