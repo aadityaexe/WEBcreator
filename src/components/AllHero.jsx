@@ -1,16 +1,102 @@
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import wifu from "../assets/image.png";
 import components from "../All-Hero-Section/MapFile/AllHeroMapping";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const HeroSection = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const textRef = useRef(null);
+  const cardsRef = useRef([]);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    gsap.fromTo(
+      headingRef.current,
+      { opacity: 0, y: -50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      textRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 75%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      cardsRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      buttonRef.current,
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: buttonRef.current,
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
-    <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
+    <div
+      ref={sectionRef}
+      className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8"
+    >
       <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
+        <h1
+          ref={headingRef}
+          className="text-4xl md:text-6xl font-extrabold mb-6"
+        >
           Bring Out All Heroes!
         </h1>
-        <p className="text-lg md:text-xl mb-8">
+        <p ref={textRef} className="text-lg md:text-xl mb-8">
           Explore a collection of heroes with unique powers and stories. Let's
           celebrate them all in style!
         </p>
@@ -20,6 +106,7 @@ const HeroSection = () => {
         {[1, 2, 3].map((item, index) => (
           <div
             key={index}
+            ref={(el) => (cardsRef.current[index] = el)}
             className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
           >
             <img
@@ -38,6 +125,7 @@ const HeroSection = () => {
       </div>
       <div className="max-w-7xl mx-auto py-5 text-center">
         <button
+          ref={buttonRef}
           onClick={() => navigate("/all-heros")}
           className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
         >
