@@ -8,6 +8,10 @@ import Hero4 from "../All-Hero-Section/Hero-4/Hero4";
 import Hero5 from "../All-Hero-Section/Hero-5/Hero5";
 import Hero6 from "../All-Hero-Section/Hero-6/Hero6";
 import Roadmap1 from "../All-Roadmap-Section/Roadmap-1/Roadmap1";
+import FAQ from "../All-Faq-Section/Faq-1/Faq1";
+import Tokenomics1 from "../All-Tokenomics-Section/Tokenomics-1/Tokenomics1";
+import SocialIcon1 from "../All-SocialIcon-Section/SocialIcon-1/SocialIcon1";
+import Footer1 from "../All-Footer-Section/Footer-1/Footer1";
 const ItemType = {
   HERO: "hero",
   NUMBER: "number",
@@ -26,16 +30,10 @@ const HeroComponent4 = () => <Hero4 />;
 const HeroComponent5 = () => <Hero5 />;
 const HeroComponent6 = () => <Hero6 />;
 const RoadmapComponent = () => <Roadmap1 />;
-const FaqComponent = () => (
-  <div className=" bg-white rounded-lg shadow">FAQ</div>
-);
-const FooterComponent = () => (
-  <div className=" bg-white rounded-lg shadow">Footer</div>
-);
-const SocialIconComponent = () => <Hero2 />;
-const TokenomicsComponent = () => (
-  <div className=" bg-white rounded-lg shadow">Tokenomics</div>
-);
+const FaqComponent = () => <FAQ />;
+const FooterComponent = () => <Footer1 />;
+const SocialIconComponent = () => <SocialIcon1 />;
+const TokenomicsComponent = () => <Tokenomics1 />;
 
 const components = [
   { id: 1, type: ItemType.HERO, content: <HeroComponent1 /> },
@@ -84,7 +82,7 @@ const DropZone = ({ acceptType, onDrop, children }) => {
   return (
     <div
       ref={drop}
-      className={`bg-gray-100 p-5 rounded-lg flex items-center justify-center text-xl font-semibold min-h-[100px] transition-colors ${
+      className={`bg-gray-100 rounded-lg flex items-center justify-center text-xl font-semibold min-h-[100px] transition-colors ${
         isOver ? "bg-gray-300" : ""
       }`}
     >
