@@ -33,9 +33,7 @@ const FaqComponent = () => (
 const FooterComponent = () => (
   <div className="p-3 bg-white rounded-lg shadow">Footer</div>
 );
-const SocialIconComponent = () => (
-  <div className="p-3 bg-white rounded-lg shadow">Social Icon</div>
-);
+const SocialIconComponent = () => <Hero2 />;
 const TokenomicsComponent = () => (
   <div className="p-3 bg-white rounded-lg shadow">Tokenomics</div>
 );
@@ -126,7 +124,7 @@ export default function SplitView() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex flex-col md:flex-row h-full pt-20 p-5 ">
+      <div className="flex flex-col md:flex-row h-full pt-20 ">
         {/* Left Panel */}
         <div
           className="w-full md:w-2/4 space-y-5 overflow-y-auto"

@@ -1,5 +1,3 @@
-import React from "react";
-
 const Roadmap1 = () => {
   return <div>Roadmap1</div>;
 };
