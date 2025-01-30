@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -42,11 +43,11 @@ const components = [
   { id: 4, type: ItemType.HERO, content: <HeroComponent4 /> },
   { id: 5, type: ItemType.HERO, content: <HeroComponent5 /> },
   { id: 6, type: ItemType.HERO, content: <HeroComponent6 /> },
-  { id: 7, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
-  { id: 8, type: ItemType.FAQ, content: <FaqComponent /> },
-  { id: 9, type: ItemType.FOOTER, content: <FooterComponent /> },
-  { id: 10, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
-  { id: 11, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
+  { id: 7, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
+  { id: 8, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
+  { id: 9, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
+  { id: 10, type: ItemType.FAQ, content: <FaqComponent /> },
+  { id: 11, type: ItemType.FOOTER, content: <FooterComponent /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
@@ -94,10 +95,6 @@ const DropZone = ({ acceptType, onDrop, children }) => {
 };
 
 export default function SplitView() {
-  const [numbers] = useState(() =>
-    Array.from({ length: 5 }, () => Math.floor(Math.random() * 100))
-  );
-
   const [sections, setSections] = useState({
     [ItemType.HERO]: null,
     [ItemType.SOCIALICON]: null,
