@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { useContent } from "../../Store/ContentValues";
 
 const FAQ = () => {
+
+  const { content } = useContent(); // ✅ Access the updated state
+
   const [expanded, setExpanded] = useState(false);
+
   const faqs = [
     {
       question: "What is Meem Token?",
@@ -29,13 +34,17 @@ const FAQ = () => {
     },
   ];
 
+  const faqData = faqs.map((faq,index)=>{
+    return content.faq && content.faq[index] ? content.faq[index] : faq;
+  })
+
   return (
     <div className=" w-full mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">
-        {faqs.slice(0, expanded ? faqs.length : 2).map((faq, index) => (
+        {faqData.slice(0, expanded ? faqs.length : 2).map((faq, index) => (
           <div key={index} className="p-4 bg-gray-800 rounded-lg">
             <h3 className="font-semibold text-lg">{faq.question}</h3>
             <p className="text-gray-400 mt-2">{faq.answer}</p>

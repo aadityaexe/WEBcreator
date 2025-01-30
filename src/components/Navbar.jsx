@@ -7,7 +7,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Navbar = () => {
               className="flex items-center space-x-2 hover:text-pink-300 transition duration-300"
             >
               <FaHome className="text-lg group-hover:scale-125 transition-transform duration-300" />
-              <span>Home</span>
+              <Link to={'/'}>Home</Link>
             </a>
           </li>
           <li className="group">

@@ -1,8 +1,12 @@
 import  { useEffect } from "react";
 import { gsap } from "gsap";
 import tryImage from "../../assets/try.png";
+import { useContent } from "../../Store/ContentValues";
 
 const Hero5 = () => {
+
+  const { content } = useContent(); // ✅ Access the updated state
+
   useEffect(() => {
     gsap.fromTo(
       ".hero-image",
@@ -24,10 +28,10 @@ const Hero5 = () => {
 
       {/* Text */}
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h1 className="text-5xl md:text-7xl font-extrabold">Let's Get Funky! 🎨</h1>
-        <p className="text-lg md:text-xl mt-4">Join the most colorful journey of creativity and fun.</p>
+        <h1 className="text-5xl md:text-7xl font-extrabold">{content?.hero?.title || `Let's Get Funky! 🎨`}</h1>
+        <p className="text-lg md:text-xl mt-4">{content?.hero?.subtitle || `Join the most colorful journey of creativity and fun`}</p>
         <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-800 text-white rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-          Join Now
+        { content?.hero?.buttonName ||  `Get Started`}
         </button>
       </div>
     </section>

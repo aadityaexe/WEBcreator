@@ -13,7 +13,7 @@ export const ContentProvider = ({ children }) => {
             ...prevContent, // ✅ Keep previous data
             ...newData, // ✅ Update with new data
         }));
-        console.log("Updated Content:", newData); // ✅ Log new form data only
+        // console.log("Updated Content:", newData); 
     };
     
     // Values to be provided

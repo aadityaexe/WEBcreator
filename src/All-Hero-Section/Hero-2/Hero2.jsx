@@ -1,7 +1,9 @@
 
 import tryImage from "../../assets/try.png";
+import { useContent } from "../../Store/ContentValues";
 
 const Hero2 = () => {
+  const { content } = useContent(); // ✅ Access the updated state
   return (
     <section className="relative flex flex-col md:flex-row items-center bg-gray-900 text-white min-h-screen p-6">
       {/* Image Section */}
@@ -17,14 +19,14 @@ const Hero2 = () => {
       {/* Text Section */}
       <div className="w-full md:w-1/2 text-center md:text-left p-8 md:p-12">
         <h1 className="text-5xl font-bold mb-6 leading-tight">
-          Welcome to the Funky Universe
+        {content?.hero?.title || "Welcome To FUnky Universe"}
         </h1>
         <p className="text-lg mb-8">
-          Discover endless possibilities and create something extraordinary with
-          our tools and resources.
+        { content?.hero?.subtitle || `Discover endless possibilities and create something extraordinary with
+          our tools and resources. Join the journey today!`}
         </p>
         <button className="px-8 py-3 bg-pink-600 hover:bg-pink-700 rounded-lg shadow-lg text-white font-semibold transition duration-300">
-          Get Started
+        { content?.hero?.buttonName ||  `Get Started`}
         </button>
       </div>
     </section>

@@ -1,3 +1,5 @@
+
+
 export default function Tokenomics1() {
   return (
     <section className="bg-gradient-to-r from-pink-500 to-gray-800 text-white w-full py-16 px-8">
