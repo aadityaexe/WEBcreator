@@ -16,6 +16,14 @@ export const ContentProvider = ({ children }) => {
     // console.log("Updated Content:", newData);
   };
 
+  const [selectedPalette, setSelectedPalette] = useState("");
+
+  const [colors, setColors] = useState({
+   
+  });
+
+  const [isGradient, setIsGradient] = useState(false);
+
   // Values to be provided
   const values = {
     content,
@@ -23,6 +31,12 @@ export const ContentProvider = ({ children }) => {
     selectedComponents,
     setSelectedComponents,
     run,
+    selectedPalette,
+    setSelectedPalette,
+    colors,
+    setColors,
+    isGradient,
+    setIsGradient
   };
 
   return (

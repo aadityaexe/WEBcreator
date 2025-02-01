@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaCopy, FaRandom } from "react-icons/fa";
+import { useContent } from '../Store/ContentValues';
 
 const funkyColorPalette = [
   {
@@ -28,15 +29,18 @@ const getRandomColor = () =>
   `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 
 const ColorPaletteSelector = () => {
-  const [selectedPalette, setSelectedPalette] = useState("");
-  const [colors, setColors] = useState({
-    bg: "#111111",
-    h1: "#FF007F",
-    p: "#1D1D1D",
-    a: "#00FF00",
-    gradient: "",
-  });
-  const [isGradient, setIsGradient] = useState(false);
+
+  const { selectedPalette, setSelectedPalette, colors, setColors , isGradient, setIsGradient } = useContent();
+
+  // const [selectedPalette, setSelectedPalette] = useState("");
+  // const [colors, setColors] = useState({
+  //   bg: "#111111",
+  //   h1: "#FF007F",
+  //   p: "#1D1D1D",
+  //   a: "#00FF00",
+  //   gradient: "",
+  // });
+  // const [isGradient, setIsGradient] = useState(false);
   const [savedPalettes, setSavedPalettes] = useState([]);
 
   const handlePaletteSelect = (paletteName) => {
