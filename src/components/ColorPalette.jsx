@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaCopy, FaRandom } from "react-icons/fa";
 
 const funkyColorPalette = [
