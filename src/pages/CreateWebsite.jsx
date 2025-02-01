@@ -110,9 +110,18 @@ export default function SplitView() {
     [ItemType.FAQ]: null,
     [ItemType.FOOTER]: null,
   });
-
+  const [selectedComponents, setSelectedComponents] = useState([]);
   const handleDrop = (item, sectionType) => {
     setSections((prev) => ({ ...prev, [sectionType]: item.content }));
+
+    setSelectedComponents((prev) => [
+      ...prev.filter((comp) => comp.type !== sectionType), // Remove previous entry for the section
+      { type: sectionType, content: item.content }, // Add new entry
+    ]);
+  };
+  const handleSubmit = () => {
+    console.log("Selected Components:", selectedComponents);
+    navigate("/see-created-website");
   };
 
   // Group components by type for better organization
@@ -163,7 +172,7 @@ export default function SplitView() {
             </DropZone>
           ))}
           <button
-            onClick={() => navigate("/see-created-website")}
+            onClick={handleSubmit}
             className="mt-5 w-full py-2 bg-blue-500 text-white rounded-lg"
           >
             Submit

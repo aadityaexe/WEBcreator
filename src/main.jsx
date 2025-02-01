@@ -9,13 +9,14 @@ import AllTypeOfRoadmap from "./pages/AllTypeOfRoadmap.jsx";
 import CreateWebsite from "./pages/CreateWebsite.jsx";
 import EnterWebsiteInfo from "./pages/EnterWebsiteInfo.jsx";
 import { ContentProvider } from "./Store/ContentValues.jsx";
+import SeeCreatedWebsite from "./pages/SeeCreatedWebsite.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
         <ContentProvider>
-        <App />
+          <App />
         </ContentProvider>
       </>
     ),
@@ -57,6 +58,14 @@ const router = createBrowserRouter([
         element: (
           <>
             <EnterWebsiteInfo />
+          </>
+        ),
+      },
+      {
+        path: "/see-created-website",
+        element: (
+          <>
+            <SeeCreatedWebsite />
           </>
         ),
       },
