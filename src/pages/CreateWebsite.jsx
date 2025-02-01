@@ -13,9 +13,10 @@ import FAQ from "../All-Faq-Section/Faq-1/Faq1";
 import Tokenomics1 from "../All-Tokenomics-Section/Tokenomics-1/Tokenomics1";
 import SocialIcon1 from "../All-SocialIcon-Section/SocialIcon-1/SocialIcon1";
 import Footer1 from "../All-Footer-Section/Footer-1/Footer1";
+import About1 from "../All-About-Section/About-1/About1";
 const ItemType = {
   HERO: "hero",
-  NUMBER: "number",
+  ABOUT: "about",
   ROADMAP: "roadmap",
   FAQ: "faq",
   FOOTER: "footer",
@@ -30,6 +31,7 @@ const HeroComponent3 = () => <Hero3 />;
 const HeroComponent4 = () => <Hero4 />;
 const HeroComponent5 = () => <Hero5 />;
 const HeroComponent6 = () => <Hero6 />;
+const AboutComponent = () => <About1 />;
 const RoadmapComponent = () => <Roadmap1 />;
 const FaqComponent = () => <FAQ />;
 const FooterComponent = () => <Footer1 />;
@@ -43,11 +45,12 @@ const components = [
   { id: 4, type: ItemType.HERO, content: <HeroComponent4 /> },
   { id: 5, type: ItemType.HERO, content: <HeroComponent5 /> },
   { id: 6, type: ItemType.HERO, content: <HeroComponent6 /> },
-  { id: 7, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
-  { id: 8, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
-  { id: 9, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
-  { id: 10, type: ItemType.FAQ, content: <FaqComponent /> },
-  { id: 11, type: ItemType.FOOTER, content: <FooterComponent /> },
+  { id: 7, type: ItemType.ABOUT, content: <About1 /> },
+  { id: 8, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
+  { id: 9, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
+  { id: 10, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
+  { id: 11, type: ItemType.FAQ, content: <FaqComponent /> },
+  { id: 12, type: ItemType.FOOTER, content: <FooterComponent /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
@@ -98,6 +101,7 @@ export default function SplitView() {
   const [sections, setSections] = useState({
     [ItemType.HERO]: null,
     [ItemType.SOCIALICON]: null,
+    [ItemType.ABOUT]: null,
     [ItemType.TOKENOMICS]: null,
     [ItemType.ROADMAP]: null,
     [ItemType.FAQ]: null,
