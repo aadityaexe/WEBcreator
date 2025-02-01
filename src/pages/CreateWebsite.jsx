@@ -6,9 +6,6 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Hero1 from "../All-Hero-Section/Hero-1/Hero1";
 import Hero2 from "../All-Hero-Section/Hero-2/Hero2";
 import Hero3 from "../All-Hero-Section/Hero-3/Hero3";
-import Hero4 from "../All-Hero-Section/Hero-4/Hero4";
-import Hero5 from "../All-Hero-Section/Hero-5/Hero5";
-import Hero6 from "../All-Hero-Section/Hero-6/Hero6";
 import Roadmap1 from "../All-Roadmap-Section/Roadmap-1/Roadmap1";
 import FAQ from "../All-Faq-Section/Faq-1/Faq1";
 import Tokenomics1 from "../All-Tokenomics-Section/Tokenomics-1/Tokenomics1";
@@ -17,6 +14,7 @@ import Footer1 from "../All-Footer-Section/Footer-1/Footer1";
 import About1 from "../All-About-Section/About-1/About1";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../Store/ContentValues";
+import ColorPalette from "../components/ColorPalette";
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
@@ -31,9 +29,7 @@ const ItemType = {
 const HeroComponent1 = () => <Hero1 />;
 const HeroComponent2 = () => <Hero2 />;
 const HeroComponent3 = () => <Hero3 />;
-const HeroComponent4 = () => <Hero4 />;
-const HeroComponent5 = () => <Hero5 />;
-const HeroComponent6 = () => <Hero6 />;
+
 const AboutComponent = () => <About1 />;
 const RoadmapComponent = () => <Roadmap1 />;
 const FaqComponent = () => <FAQ />;
@@ -44,16 +40,14 @@ const TokenomicsComponent = () => <Tokenomics1 />;
 const components = [
   { id: 1, type: ItemType.HERO, content: <HeroComponent1 /> },
   { id: 2, type: ItemType.HERO, content: <HeroComponent2 /> },
-  { id: 3, type: ItemType.HERO, content: <HeroComponent3 /> },
-  { id: 4, type: ItemType.HERO, content: <HeroComponent4 /> },
-  { id: 5, type: ItemType.HERO, content: <HeroComponent5 /> },
-  { id: 6, type: ItemType.HERO, content: <HeroComponent6 /> },
-  { id: 7, type: ItemType.ABOUT, content: <AboutComponent /> },
-  { id: 8, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
-  { id: 9, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
-  { id: 10, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
-  { id: 11, type: ItemType.FAQ, content: <FaqComponent /> },
-  { id: 12, type: ItemType.FOOTER, content: <FooterComponent /> },
+  { id: 4, type: ItemType.HERO, content: <HeroComponent3 /> },
+  { id: 5, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
+  { id: 6, type: ItemType.ABOUT, content: <AboutComponent /> },
+
+  { id: 7, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
+  { id: 8, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
+  { id: 9, type: ItemType.FAQ, content: <FaqComponent /> },
+  { id: 10, type: ItemType.FOOTER, content: <FooterComponent /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
@@ -156,7 +150,8 @@ export default function SplitView() {
                 </div>
               ))}
             </div>
-          ))}
+          ))}{" "}
+          <ColorPalette />
         </div>
 
         {/* Right Panel */}

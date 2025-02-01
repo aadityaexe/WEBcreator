@@ -11,7 +11,7 @@ const SeeCreatedWebsite = () => {
           <h3>{component.content.type.name}</h3>
           {/* Safely clone the component, ensuring the ref is passed correctly */}
           {React.cloneElement(component, {
-            ...component.props,
+            ...component.content.type.name,
             ref: component.ref || null, // Ensuring ref is not invalid
           })}
         </div>
