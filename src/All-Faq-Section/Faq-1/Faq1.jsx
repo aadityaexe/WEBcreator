@@ -3,7 +3,6 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useContent } from "../../Store/ContentValues";
 
 const FAQ = () => {
-
   const { content } = useContent(); // ✅ Access the updated state
 
   const [expanded, setExpanded] = useState(false);
@@ -34,12 +33,12 @@ const FAQ = () => {
     },
   ];
 
-  const faqData = faqs.map((faq,index)=>{
+  const faqData = faqs.map((faq, index) => {
     return content.faq && content.faq[index] ? content.faq[index] : faq;
-  })
+  });
 
   return (
-    <div className=" w-full mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+    <div className=" w-full mx-auto p-6 bg-gray-900 text-white  shadow-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">
         Frequently Asked Questions
       </h2>
