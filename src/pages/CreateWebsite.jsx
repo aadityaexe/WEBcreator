@@ -16,6 +16,7 @@ import SocialIcon1 from "../All-SocialIcon-Section/SocialIcon-1/SocialIcon1";
 import Footer1 from "../All-Footer-Section/Footer-1/Footer1";
 import About1 from "../All-About-Section/About-1/About1";
 import { useNavigate } from "react-router-dom";
+import { useContent } from "../Store/ContentValues";
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
@@ -100,6 +101,7 @@ const DropZone = ({ acceptType, onDrop, children }) => {
 };
 
 export default function SplitView() {
+  const { selectedComponents, setSelectedComponents } = useContent();
   const navigate = useNavigate();
   const [sections, setSections] = useState({
     [ItemType.HERO]: null,
@@ -110,7 +112,7 @@ export default function SplitView() {
     [ItemType.FAQ]: null,
     [ItemType.FOOTER]: null,
   });
-  const [selectedComponents, setSelectedComponents] = useState([]);
+
   const handleDrop = (item, sectionType) => {
     setSections((prev) => ({ ...prev, [sectionType]: item.content }));
 
