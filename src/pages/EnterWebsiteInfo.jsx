@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useContent } from "../Store/ContentValues";
+import { useNavigate } from "react-router-dom";
 
 export default function EnterWebsiteInfo() {
-
-  const {  setContent } = useContent();
-  const { run } = useContent(); 
+  const navigate = useNavigate();
+  const { setContent } = useContent();
+  const { run } = useContent();
 
   const [data, setData] = useState({
     hero: {
@@ -115,7 +116,10 @@ export default function EnterWebsiteInfo() {
       </pre>
 
       <button
-        onClick={handleSubmit}
+        onClick={() => {
+          handleSubmit();
+          navigate("/new-website");
+        }}
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
       >
         Submit
