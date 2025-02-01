@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import { useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -14,6 +15,7 @@ import Tokenomics1 from "../All-Tokenomics-Section/Tokenomics-1/Tokenomics1";
 import SocialIcon1 from "../All-SocialIcon-Section/SocialIcon-1/SocialIcon1";
 import Footer1 from "../All-Footer-Section/Footer-1/Footer1";
 import About1 from "../All-About-Section/About-1/About1";
+import { useNavigate } from "react-router-dom";
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
@@ -45,7 +47,7 @@ const components = [
   { id: 4, type: ItemType.HERO, content: <HeroComponent4 /> },
   { id: 5, type: ItemType.HERO, content: <HeroComponent5 /> },
   { id: 6, type: ItemType.HERO, content: <HeroComponent6 /> },
-  { id: 7, type: ItemType.ABOUT, content: <About1 /> },
+  { id: 7, type: ItemType.ABOUT, content: <AboutComponent /> },
   { id: 8, type: ItemType.SOCIALICON, content: <SocialIconComponent /> },
   { id: 9, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
   { id: 10, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
@@ -98,6 +100,7 @@ const DropZone = ({ acceptType, onDrop, children }) => {
 };
 
 export default function SplitView() {
+  const navigate = useNavigate();
   const [sections, setSections] = useState({
     [ItemType.HERO]: null,
     [ItemType.SOCIALICON]: null,
@@ -159,6 +162,12 @@ export default function SplitView() {
               {sections[sectionType]}
             </DropZone>
           ))}
+          <button
+            onClick={() => navigate("/see-created-website")}
+            className="mt-5 w-full py-2 bg-blue-500 text-white rounded-lg"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </DndProvider>
