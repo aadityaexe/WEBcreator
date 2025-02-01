@@ -8,12 +8,15 @@ const SeeCreatedWebsite = () => {
     <div className="h-screen pt-28">
       {selectedComponents.map((component, index) => (
         <div key={index}>
-          <h3>{component.content.type.name}</h3>
-          {/* Safely clone the component, ensuring the ref is passed correctly */}
-          {React.cloneElement(component, {
-            ...component.content.type.name,
-            ref: component.ref || null, // Ensuring ref is not invalid
-          })}
+          {/* Display component name if available */}
+          {/* {component.content?.type?.name && <h3>{component.content.type.name}</h3>} */}
+
+          {/* Render the component safely */}
+          {React.isValidElement(component.content) ? (
+            React.cloneElement(component.content)
+          ) : (
+            <p>Invalid component</p>
+          )}
         </div>
       ))}
     </div>
