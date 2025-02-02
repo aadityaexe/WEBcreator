@@ -10,7 +10,7 @@ const defaultRoadmap = [
 ];
 
 const Roadmap1 = () => {
-  const { content } = useContent();
+  const { content, colors } = useContent();
 
   // Fill missing roadmap data while keeping existing ones
   const roadmapData = defaultRoadmap.map((defaultPhase, index) => {
@@ -18,7 +18,15 @@ const Roadmap1 = () => {
   });
 
   return (
-    <div className="relative py-16 w-full bg-gradient-to-r from-pink-500 to-gray-800 text-white">
+    <div
+      className="relative py-16 w-full"
+      style={{
+        background: colors?.isGradient
+          ? colors?.gradient || "linear-gradient(to right, #ff7e5f, #feb47b)"
+          : colors?.bg || "#111827", // Fallback for background
+        color: colors?.text || "#fff", // Dynamic text color
+      }}
+    >
       <h2 className="text-4xl font-bold text-center mb-12">Roadmap</h2>
       <div className="max-w-4xl mx-auto relative flex gap-5 flex-col items-center">
         <div
@@ -29,9 +37,13 @@ const Roadmap1 = () => {
         {roadmapData.map((phase, index) => (
           <div
             key={index}
-            className={`relative flex items-center p-6 rounded-xl shadow-lg border-2 border-gray-500 bg-black/50 backdrop-blur-lg w-2/3 ${
+            className={`relative flex items-center p-6 rounded-xl shadow-lg border-2 w-2/3 ${
               index % 2 === 0 ? "self-start" : "self-end"
             }`}
+            style={{
+              backgroundColor: colors?.cardBg || "rgba(0, 0, 0, 0.5)", // Dynamic background color for each card
+              borderColor: colors?.cardBorder || "rgba(255, 255, 255, 0.2)", // Dynamic border color
+            }}
           >
             <div className="w-10 h-10 flex justify-center items-center mr-4">
               <FaCheckCircle className="text-green-400 text-3xl" />

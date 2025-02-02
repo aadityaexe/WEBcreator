@@ -3,7 +3,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useContent } from "../../Store/ContentValues";
 
 const FAQ = () => {
-  const { content } = useContent(); // ✅ Access the updated state
+  const { content, colors } = useContent(); // ✅ Access the updated state
 
   const [expanded, setExpanded] = useState(false);
 
@@ -38,21 +38,40 @@ const FAQ = () => {
   });
 
   return (
-    <div className=" w-full mx-auto p-6 bg-gray-900 text-white  shadow-lg">
-      <h2 className="text-2xl font-bold mb-4 text-center">
+    <div
+      className="w-full mx-auto p-6 shadow-lg"
+      style={{
+        backgroundColor: colors?.bg || "#111827", // Dynamic background color
+      }}
+    >
+      <h2
+        className="text-2xl font-bold mb-4 text-center"
+        style={{ color: colors?.h1 || "#ffffff" }} // Dynamic title color
+      >
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">
         {faqData.slice(0, expanded ? faqs.length : 2).map((faq, index) => (
-          <div key={index} className="p-4 bg-gray-800 rounded-lg">
+          <div
+            key={index}
+            className="p-4 rounded-lg"
+            style={{
+              backgroundColor: colors?.cardBg || "#1f2937", // Dynamic card background color
+              color: colors?.text || "#d1d5db", // Dynamic text color
+            }}
+          >
             <h3 className="font-semibold text-lg">{faq.question}</h3>
-            <p className="text-gray-400 mt-2">{faq.answer}</p>
+            <p className="mt-2">{faq.answer}</p>
           </div>
         ))}
       </div>
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-4 flex items-center gap-2 px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg mx-auto block transition-all"
+        className="mt-4 flex items-center gap-2 px-4 py-2 rounded-lg mx-auto block transition-all"
+        style={{
+          backgroundColor: colors?.buttonBg || "#ec4899", // Dynamic button background color
+          color: colors?.buttonText || "#ffffff", // Dynamic button text color
+        }}
       >
         {expanded ? "See Less" : "See More"}{" "}
         {expanded ? <FaChevronUp /> : <FaChevronDown />}

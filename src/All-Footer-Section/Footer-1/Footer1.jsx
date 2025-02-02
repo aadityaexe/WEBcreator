@@ -1,12 +1,9 @@
-import {
-  FaTwitter,
-  FaDiscord,
-  FaTelegram,
-  FaInstagram,
-  FaGithub,
-} from "react-icons/fa";
+import { FaTwitter, FaDiscord, FaTelegram, FaInstagram, FaGithub } from "react-icons/fa";
+import { useContent } from "../../Store/ContentValues";
 
 export default function Footer1() {
+  const { colors } = useContent(); // ✅ Access dynamic colors from store
+
   const socialLinks = [
     { icon: <FaTwitter />, url: "https://twitter.com", color: "text-blue-400" },
     {
@@ -24,7 +21,15 @@ export default function Footer1() {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-pink-500 to-gray-800 text-white w-full py-10 px-6 text-center relative">
+    <footer
+      className="w-full py-10 px-6 text-center relative"
+      style={{
+        background: colors?.isGradient
+          ? colors?.gradient || "linear-gradient(to right, #ff7e5f, #feb47b)"
+          : colors?.bg || "#111827", // Fallback for background
+        color: colors?.text || "#fff", // Dynamic text color
+      }}
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">Stay Connected</h2>
         <p className="text-lg mb-6">
