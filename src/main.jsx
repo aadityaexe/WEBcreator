@@ -10,6 +10,7 @@ import CreateWebsite from "./pages/CreateWebsite.jsx";
 import EnterWebsiteInfo from "./pages/EnterWebsiteInfo.jsx";
 import { ContentProvider } from "./Store/ContentValues.jsx";
 import SeeCreatedWebsite from "./pages/SeeCreatedWebsite.jsx";
+import GetWebsiteCode from "./pages/GetWebsiteCode.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,6 +67,14 @@ const router = createBrowserRouter([
         element: (
           <>
             <SeeCreatedWebsite />
+          </>
+        ),
+      },
+      {
+        path: "/get-website-code",
+        element: (
+          <>
+            <GetWebsiteCode />
           </>
         ),
       },
