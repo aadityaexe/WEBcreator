@@ -36,6 +36,22 @@ const componentData = [
 
 const GetWebsiteCode = () => {
   const { selectedComponents } = useContent(); // Use context data
+  const pHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  script src="https://cdn.tailwindcss.com"></script>
+  <link href="styles.css" rel="stylesheet"/>
+  
+</head>
+<body>`;
+
+  const pHemlEnd = ` 
+script src=stcripts.js></script>
+</body>
+</html>`;
 
   const codeSections = [];
   const stylesSections = [];
@@ -50,9 +66,9 @@ const GetWebsiteCode = () => {
     if (compData) {
       codeSections.push(
         <div key={`code-${compName.content.type.name}`} className="mb-4">
-          <h3 className="text-xl font-semibold text-green-500">
+          {/* <h3 className="text-xl font-semibold text-green-500">
             {compData.name} Code:
-          </h3>
+          </h3> */}
           <pre className="bg-gray-800 p-4 rounded text-white">
             {typeof compData.code === "string"
               ? compData.code
@@ -103,8 +119,9 @@ const GetWebsiteCode = () => {
                 <h3 className="text-2xl font-semibold text-green-500">
                   All Code:
                 </h3>
-
+                {pHtml}
                 {codeSections}
+                {pHemlEnd}
               </div>
               <div className="mb-4">
                 <h3 className="text-2xl font-semibold text-blue-400">
