@@ -80,7 +80,7 @@ const componentData = [
                         <a href="#" class="text-pink-500">Instagram</a>
                         <a href="#" class="text-red-500">YouTube</a>
                       </div>`,
-    styles: "bg-blue-500 text-white p-16",
+    styles: "",
     script: '<script>console.log("Hello from HeroComponent1")</script>',
   },
   {
