@@ -6,6 +6,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const heroes = [
+  {
+    id: 1,
+    name: "Shadow Phantom",
+    description: "A mysterious hero who controls the shadows to fight evil.",
+    image: "https://via.placeholder.com/300x200?text=Shadow+Phantom",
+  },
+  {
+    id: 2,
+    name: "Storm Guardian",
+    description:
+      "Master of the winds and storms, protecting the city from harm.",
+    image: "https://via.placeholder.com/300x200?text=Storm+Guardian",
+  },
+  {
+    id: 3,
+    name: "Blazing Fury",
+    description: "A fiery warrior with immense strength and courage.",
+    image: "https://via.placeholder.com/300x200?text=Blazing+Fury",
+  },
+];
+
 const HeroSection = () => {
   const navigate = useNavigate();
   const sectionRef = useRef(null);
@@ -102,22 +124,20 @@ const HeroSection = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {[1, 2, 3].map((item, index) => (
+        {heroes.map((hero, index) => (
           <div
-            key={index}
+            key={hero.id}
             ref={(el) => (cardsRef.current[index] = el)}
             className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
           >
             <img
-              src={`https://via.placeholder.com/300x200?text=Hero+${item}`}
-              alt={`Hero ${item}`}
+              src={hero.image}
+              alt={hero.name}
               className="w-full h-60 object-cover"
             />
             <div className="bg-gray-800 p-4">
-              <h3 className="text-xl font-bold">Hero {item}</h3>
-              <p className="text-gray-400">
-                A brief description of Hero {item}.
-              </p>
+              <h3 className="text-xl font-bold">{hero.name}</h3>
+              <p className="text-gray-400">{hero.description}</p>
             </div>
           </div>
         ))}
