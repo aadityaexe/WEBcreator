@@ -31,8 +31,9 @@ const GetWebsiteCode = () => {
   const scriptSections = [];
 
   selectedComponents.forEach((comp) => {
+    // Ensure component name exists in componentData
     const compData = componentData.find(
-      (data) => data.name === comp?.content?.type?.name // Added optional chaining
+      (data) => data.name === comp?.content?.type?.name // Optional chaining
     );
 
     if (compData) {
@@ -43,8 +44,12 @@ const GetWebsiteCode = () => {
 </section>`
       );
 
-      stylesSections.push(compData.styles);
-      scriptSections.push(compData.script);
+      stylesSections.push(compData.styles || ""); // If styles are available, use them
+      scriptSections.push(compData.script || ""); // If script is available, use them
+    } else {
+      console.warn(
+        `Component ${comp?.content?.type?.name} not found in componentData.`
+      );
     }
   });
 
