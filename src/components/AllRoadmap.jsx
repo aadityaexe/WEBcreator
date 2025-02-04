@@ -53,7 +53,7 @@ const AllRoadmap = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8">
+    <div className="bg-gradient-to-r from-pink-500 via-gray-800 to-gray-900 text-white p-8 overflow-x-hidden">
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
           Bring Out All Roadmaps!
@@ -83,7 +83,7 @@ const AllRoadmap = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto py-6 text-center">
+      <div className="max-w-7xl mx-auto  py-6 text-center">
         <button
           onClick={() => navigate("/all-roadmap")}
           className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
