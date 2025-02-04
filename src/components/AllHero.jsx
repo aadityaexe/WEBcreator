@@ -2,8 +2,6 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import wifu from "../assets/image.png";
-import components from "../All-Hero-Section/MapFile/AllHeroMapping";
 
 gsap.registerPlugin(ScrollTrigger);
 
