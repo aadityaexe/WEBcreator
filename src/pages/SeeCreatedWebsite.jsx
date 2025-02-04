@@ -7,32 +7,29 @@ const SeeCreatedWebsite = () => {
   const { selectedComponents } = useContent();
 
   return (
-    <>
-      {" "}
-      <div className="h-screen pt-28">
-        {selectedComponents.map((component, index) => (
-          <div key={index}>
-            {/* Display component name if available */}
-            {/* {component.content?.type?.name && <h3>{component.content.type.name}</h3>} */}
-
-            {/* Render the component safely */}
-            {React.isValidElement(component.content) ? (
-              React.cloneElement(component.content)
-            ) : (
-              <p>Invalid component</p>
-            )}
-          </div>
-        ))}
+    <div className="min-h-screen pt-20 px-4 flex flex-col items-center">
+      <div className="w-full">
+        {selectedComponents.length > 0 ? (
+          selectedComponents.map((component, index) => (
+            <div key={index} className="w-full">
+              {React.isValidElement(component.content) ? (
+                React.cloneElement(component.content)
+              ) : (
+                <p className="text-center text-gray-500">Invalid component</p>
+              )}
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-600">No components selected</p>
+        )}
       </div>
       <button
-        onClick={() => {
-          navigate("/get-website-code");
-        }}
-        className="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg rounded-lg transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-xl hover:from-purple-500 hover:to-pink-500"
+        onClick={() => navigate("/get-website-code")}
+        className="mt-8 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:to-pink-500"
       >
         Get Website Code
       </button>
-    </>
+    </div>
   );
 };
 
