@@ -3,21 +3,26 @@ import { useContent } from "../Store/ContentValues";
 const GetWebsiteCode = () => {
   const { selectedComponents, componentData } = useContent();
 
+  // Check if selectedComponents or componentData are undefined
+  if (!selectedComponents || !componentData) {
+    return <p>Loading...</p>;
+  }
+
   const pHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generated Website</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="/gsap.min.js"></script> <!-- Load locally -->
+  <script src="/ScrollTrigger.min.js"></script> <!-- Load locally -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="styles.css" rel="stylesheet"/>
+  <link href="/styles.css" rel="stylesheet"/> <!-- Load locally -->
 </head>
 <body>`;
 
   const pHtmlEnd = `
-<script src="scripts.js"></script>
+<script src="/scripts.js"></script> <!-- Load locally -->
 </body>
 </html>`;
 
@@ -27,7 +32,7 @@ const GetWebsiteCode = () => {
 
   selectedComponents.forEach((comp) => {
     const compData = componentData.find(
-      (data) => data.name === comp.content.type.name
+      (data) => data.name === comp?.content?.type?.name // Added optional chaining
     );
 
     if (compData) {
