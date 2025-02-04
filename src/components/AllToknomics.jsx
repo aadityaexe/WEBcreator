@@ -1,24 +1,41 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 
+const tokonomicsData = [
+  {
+    id: 1,
+    name: "Etherian Guardian",
+    image: "https://via.placeholder.com/300x200?text=Etherian+Guardian",
+    description: "A powerful entity safeguarding the Ethereum network.",
+  },
+  {
+    id: 2,
+    name: "Bitcoin Titan",
+    image: "https://via.placeholder.com/300x200?text=Bitcoin+Titan",
+    description: "An unstoppable force in the world of digital gold.",
+  },
+  {
+    id: 3,
+    name: "Solana Phantom",
+    image: "https://via.placeholder.com/300x200?text=Solana+Phantom",
+    description: "The speedster of decentralized finance.",
+  },
+];
+
 const AllToknomics = () => {
   useEffect(() => {
-    // Targeting the container elements for scroll animations
     gsap.fromTo(
       ".tokonomics-item",
-      {
-        opacity: 0,
-        y: 100, // starting from below
-      },
+      { opacity: 0, y: 100 },
       {
         opacity: 1,
         y: 0,
         scrollTrigger: {
-          trigger: ".tokonomics-item", // element that triggers animation
-          start: "top bottom", // when top of element hits bottom of viewport
-          end: "top center", // ends when the top of element reaches center of viewport
-          scrub: true, // scrubs the animation with the scroll position
-          markers: false, // optional markers for debugging
+          trigger: ".tokonomics-item",
+          start: "top bottom",
+          end: "top center",
+          scrub: true,
+          markers: false,
         },
       }
     );
@@ -37,21 +54,19 @@ const AllToknomics = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {[1, 2, 3].map((item, index) => (
+        {tokonomicsData.map((item) => (
           <div
-            key={index}
+            key={item.id}
             className="tokonomics-item rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
           >
             <img
-              src={`https://via.placeholder.com/300x200?text=Hero+${item}`}
-              alt={`Hero ${item}`}
+              src={item.image}
+              alt={item.name}
               className="w-full h-60 object-cover"
             />
             <div className="bg-gray-800 p-4">
-              <h3 className="text-xl font-bold">Tokonomics {item}</h3>
-              <p className="text-gray-400">
-                A brief description of Tokonomics {item}.
-              </p>
+              <h3 className="text-xl font-bold">{item.name}</h3>
+              <p className="text-gray-400">{item.description}</p>
             </div>
           </div>
         ))}
