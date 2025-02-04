@@ -5,24 +5,22 @@ const ContentContext = createContext();
 
 // Create provider component
 export const ContentProvider = ({ children }) => {
-  // Add your state values here
+  // State management
   const [content, setContent] = useState({});
   const [selectedComponents, setSelectedComponents] = useState([]);
-  const run = (newData) => {
-    setContent((prevContent) => ({
-      ...prevContent, // ✅ Keep previous data
-      ...newData, // ✅ Update with new data
-    }));
-    // console.log("Updated Content:", newData);
-  };
-
   const [selectedPalette, setSelectedPalette] = useState("");
-
   const [colors, setColors] = useState({});
-
   const [isGradient, setIsGradient] = useState(false);
 
-  // Assuming the component data structure is like this
+  // Function to update content
+  const run = (newData) => {
+    setContent((prevContent) => ({
+      ...prevContent,
+      ...newData,
+    }));
+  };
+
+  // Component data
   const componentData = [
     {
       name: "HeroComponent1",
@@ -49,95 +47,43 @@ export const ContentProvider = ({ children }) => {
         </div>
     </div>
 </section>`,
-      styles: "",
       script: `<script>
         document.addEventListener("DOMContentLoaded", function () {
             gsap.registerPlugin(ScrollTrigger);
-            
-            const heading = document.getElementById("heading");
-            const paragraph = document.getElementById("paragraph");
-            const buttons = document.getElementById("buttons");
-            const image = document.getElementById("image");
-            const hero = document.getElementById("hero");
-            
-            gsap.from([heading, paragraph, buttons], {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out",
+            gsap.from(["#heading", "#paragraph", "#buttons"], {
+                opacity: 0, y: 50, duration: 1, stagger: 0.2, ease: "power3.out"
             });
-            
-            gsap.from(image, {
-                opacity: 0,
-                x: 100,
-                duration: 1,
-                ease: "power3.out",
-            });
-            
-            gsap.to(image, {
-                scrollTrigger: {
-                    trigger: hero,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                },
-                y: -100,
-                scale: 1.1,
+            gsap.from("#image", { opacity: 0, x: 100, duration: 1, ease: "power3.out" });
+            gsap.to("#image", {
+                scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
+                y: -100, scale: 1.1
             });
         });
-    </script>
-    <script>
-        function navigateTo(url) {
-            window.location.href = url;
-        }
-    </script`,
+        function navigateTo(url) { window.location.href = url; }
+    </script>`,
     },
-
     {
       name: "SocialIconComponent",
-      code: `<section
-  class="w-full py-16 flex justify-center"
-  style="background: linear-gradient(to right, #ff7e5f, #feb47b);" 
->
+      code: `<section class="w-full py-16 flex justify-center" style="background: linear-gradient(to right, #ff7e5f, #feb47b);">
   <div class="flex gap-6">
-    <a
-      href="https://twitter.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="relative group text-4xl text-blue-400 transition-transform transform hover:scale-125"
-    >
+    <a href="https://twitter.com" target="_blank" class="group text-4xl text-blue-400 hover:scale-125 transition-transform">
       <i class="fa fa-twitter"></i>
-      <span class="absolute inset-0 w-full h-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-all"></span>
     </a>
-    <a
-      href="https://discord.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="relative group text-4xl text-indigo-500 transition-transform transform hover:scale-125"
-    >
+    <a href="https://discord.com" target="_blank" class="group text-4xl text-indigo-500 hover:scale-125 transition-transform">
       <i class="fa fa-discord"></i>
-      <span class="absolute inset-0 w-full h-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-all"></span>
     </a>
-    <a
-      href="https://t.me"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="relative group text-4xl text-blue-500 transition-transform transform hover:scale-125"
-    >
+    <a href="https://t.me" target="_blank" class="group text-4xl text-blue-500 hover:scale-125 transition-transform">
       <i class="fa fa-telegram"></i>
-`,
-      styles: "",
-      script: '<script>console.log("Hello from HeroComponent1")</script>',
+    </a>
+  </div>
+</section>`,
     },
     {
       name: "AboutComponent",
-      code: `<section class="about bg-gray-200 p-16">
-                      <h2 class="text-3xl font-bold">About Us</h2>
-                      <p class="mt-4">This section provides information about the website and its purpose.</p>
-                    </section>`,
-      styles: "bg-blue-500 text-white p-16",
-      script: '<script>console.log("Hello from HeroComponent1")</script>',
+      code: `<section class="bg-gray-200 p-16">
+        <h2 class="text-3xl font-bold">About Us</h2>
+        <p class="mt-4">This section provides information about the website and its purpose.</p>
+      </section>`,
     },
     {
       name: "TokenomicsComponent",
@@ -171,46 +117,10 @@ export const ContentProvider = ({ children }) => {
             </div>
         </div>
     </div>`,
-      styles: " ",
-      script: " ",
-    },
-    {
-      name: "TokenomicsComponent",
-      code: `<div class="max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold mb-6">Tokenomics</h2>
-        <p class="text-lg mb-8">A transparent and fair distribution model for our ecosystem.</p>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Total Supply</h3>
-                <p class="text-xl font-bold">1,000,000,000</p>
-            </div>
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Liquidity</h3>
-                <p class="text-xl font-bold">30%</p>
-            </div>
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Team & Development</h3>
-                <p class="text-xl font-bold">15%</p>
-            </div>
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Marketing</h3>
-                <p class="text-xl font-bold">20%</p>
-            </div>
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Staking & Rewards</h3>
-                <p class="text-xl font-bold">25%</p>
-            </div>
-            <div class="p-6 border border-white/20 rounded-xl bg-white/10 backdrop-blur-lg">
-                <h3 class="text-2xl font-semibold mb-2">Reserve</h3>
-                <p class="text-xl font-bold">10%</p>
-            </div>
-        </div>
-    </div>`,
-      styles: " ",
-      script: " ",
     },
   ];
-  // Values to be provided
+
+  // Context values
   const values = {
     content,
     setContent,
@@ -234,7 +144,7 @@ export const ContentProvider = ({ children }) => {
 // Custom hook for using the context
 export const useContent = () => {
   const context = useContext(ContentContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useContent must be used within a ContentProvider");
   }
   return context;
