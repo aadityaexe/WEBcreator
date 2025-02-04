@@ -1,24 +1,23 @@
 import { useContent } from "../Store/ContentValues";
 
 const GetWebsiteCode = () => {
-  const { selectedComponents, componentData } = useContent(); // Use context data
+  const { selectedComponents, componentData } = useContent();
+
   const pHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Generated Website</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="styles.css" rel="stylesheet"/>
-  
 </head>
 <body>`;
 
-  const pHemlEnd = ` 
+  const pHtmlEnd = `
 <script src="scripts.js"></script>
-
 </body>
 </html>`;
 
@@ -26,91 +25,60 @@ const GetWebsiteCode = () => {
   const stylesSections = [];
   const scriptSections = [];
 
-  // Populate code, styles, and scripts for selected components
-  selectedComponents.forEach((compName) => {
+  selectedComponents.forEach((comp) => {
     const compData = componentData.find(
-      (data) => data.name === compName.content.type.name
+      (data) => data.name === comp.content.type.name
     );
 
     if (compData) {
       codeSections.push(
-        <div key={`code-${compName.content.type.name}`} className="mb-4">
-          <h3 className="text-xl font-semibold text-green-500">
-            {compData.name} Code:
-          </h3>
-          <pre className="bg-gray-800 p-4 rounded text-white">
-            {typeof compData.code === "string"
-              ? compData.code
-              : JSON.stringify(compData.code, null, 2)}
-          </pre>
-        </div>
+        `<section>
+  <!-- ${compData.name} Component -->
+  ${compData.code}
+</section>`
       );
 
-      stylesSections.push(
-        <div key={`styles-${compName.content.type.name}`} className="mb-4">
-          <h4 className="text-lg font-semibold text-blue-400">
-            {compData.name} Styles:
-          </h4>
-          <pre className="bg-gray-800 p-4 rounded text-white">
-            {typeof compData.styles === "string"
-              ? compData.styles
-              : JSON.stringify(compData.styles, null, 2)}
-          </pre>
-        </div>
-      );
-
-      scriptSections.push(
-        <div key={`script-${compName.content.type.name}`} className="mb-4">
-          <h4 className="text-lg font-semibold text-red-400">
-            {compData.name} Script:
-          </h4>
-          <pre className="bg-gray-800 p-4 rounded text-white">
-            {typeof compData.script === "string"
-              ? compData.script
-              : JSON.stringify(compData.script, null, 2)}
-          </pre>
-        </div>
-      );
+      stylesSections.push(compData.styles);
+      scriptSections.push(compData.script);
     }
   });
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 overflow-x-hidden">
       <div className="bg-white shadow-lg p-6 rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Component Code</h2>
-        <div
-          id="codeContainer"
-          className="bg-gray-900 text-white p-4 rounded-md"
-        >
-          {selectedComponents.length > 0 ? (
-            <>
-              <div className="mb-4">
-                <h3 className="text-2xl font-semibold text-green-500">
-                  All Code:
-                </h3>
-                {pHtml}
-                {codeSections}
-                {pHemlEnd}
-              </div>
-              <div className="mb-4">
-                <h3 className="text-2xl font-semibold text-blue-400">
-                  All Styles:
-                </h3>
-                {stylesSections}
-              </div>
-              <div className="mb-4">
-                <h3 className="text-2xl font-semibold text-red-400">
-                  All Scripts:
-                </h3>
-                {scriptSections}
-              </div>
-            </>
-          ) : (
-            <p className="text-gray-400">
-              Select components to view their code.
-            </p>
-          )}
-        </div>
+        <h2 className="text-2xl font-bold mb-4">Generated Website Code</h2>
+        {selectedComponents.length > 0 ? (
+          <>
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold text-green-500">
+                HTML Code:
+              </h3>
+              <pre className="bg-gray-900 p-4 rounded text-white overflow-x-auto">
+                {pHtml + codeSections.join("\n") + pHtmlEnd}
+              </pre>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold text-blue-400">
+                CSS Styles:
+              </h3>
+              <pre className="bg-gray-900 p-4 rounded text-white overflow-x-auto">
+                {stylesSections.join("\n")}
+              </pre>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold text-red-400">
+                JavaScript:
+              </h3>
+              <pre className="bg-gray-900 p-4 rounded text-white overflow-x-auto">
+                {scriptSections.join("\n")}
+              </pre>
+            </div>
+          </>
+        ) : (
+          <p className="text-gray-400">
+            Select components to generate website code.
+          </p>
+        )}
       </div>
     </div>
   );
