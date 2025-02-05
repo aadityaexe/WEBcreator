@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import imageH from "../assets/image.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const heroes = [
@@ -11,20 +11,20 @@ const heroes = [
     id: 1,
     name: "Shadow Phantom",
     description: "A mysterious hero who controls the shadows to fight evil.",
-    image: "https://via.placeholder.com/300x200?text=Shadow+Phantom",
+    image: imageH,
   },
   {
     id: 2,
     name: "Storm Guardian",
     description:
       "Master of the winds and storms, protecting the city from harm.",
-    image: "https://via.placeholder.com/300x200?text=Storm+Guardian",
+    image: imageH,
   },
   {
     id: 3,
     name: "Blazing Fury",
     description: "A fiery warrior with immense strength and courage.",
-    image: "https://via.placeholder.com/300x200?text=Blazing+Fury",
+    image: imageH,
   },
 ];
 
