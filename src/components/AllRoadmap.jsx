@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import image from "../assets/image.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,21 +12,21 @@ const roadmaps = [
     name: "Blockchain Basics",
     description:
       "Learn the fundamentals of blockchain technology and how it works.",
-    image: "https://via.placeholder.com/300x200?text=Blockchain+Basics",
+    image: image,
   },
   {
     id: 2,
     name: "Smart Contracts",
     description:
       "Understand smart contracts and how they enable decentralized applications.",
-    image: "https://via.placeholder.com/300x200?text=Smart+Contracts",
+    image: image,
   },
   {
     id: 3,
     name: "Crypto Security",
     description:
       "Master best practices for securing your crypto assets and wallets.",
-    image: "https://via.placeholder.com/300x200?text=Crypto+Security",
+    image: image,
   },
 ];
 

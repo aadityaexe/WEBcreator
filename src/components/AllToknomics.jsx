@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
-
+import image from "../assets/image.png";
 const tokonomicsData = [
   {
     id: 1,
     name: "Etherian Guardian",
-    image: "https://via.placeholder.com/300x200?text=Etherian+Guardian",
+    image: image,
     description: "A powerful entity safeguarding the Ethereum network.",
   },
   {
     id: 2,
     name: "Bitcoin Titan",
-    image: "https://via.placeholder.com/300x200?text=Bitcoin+Titan",
+    image: image,
     description: "An unstoppable force in the world of digital gold.",
   },
   {
     id: 3,
     name: "Solana Phantom",
-    image: "https://via.placeholder.com/300x200?text=Solana+Phantom",
+    image: image,
     description: "The speedster of decentralized finance.",
   },
 ];

@@ -6,7 +6,7 @@ import ContactUs from "../components/ContactUs";
 import Hero from "../components/Hero";
 import MeemTokenWebsites from "../components/MeemTokenWebsites";
 import Services from "../components/Services";
-import wifu from "../assets/image.png";
+import wifu from "../assets/image1.png";
 const Home = () => {
   const websites = [
     {
