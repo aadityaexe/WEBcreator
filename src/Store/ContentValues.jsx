@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
 import { createContext, useState, useContext } from "react";
-
 // Create context
 const ContentContext = createContext();
-
 // Create provider component
 export const ContentProvider = ({ children }) => {
   // State management
