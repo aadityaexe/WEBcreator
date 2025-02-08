@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState, useContext } from "react";
 // Create context
 const ContentContext = createContext();
@@ -9,7 +10,6 @@ export const ContentProvider = ({ children }) => {
   const [selectedPalette, setSelectedPalette] = useState("");
   const [colors, setColors] = useState({});
   const [isGradient, setIsGradient] = useState(false);
-
   // Function to update content
   const run = (newData) => {
     setContent((prevContent) => ({
@@ -17,7 +17,6 @@ export const ContentProvider = ({ children }) => {
       ...newData,
     }));
   };
-
   const componentData = [
     {
       name: "HeroComponent1",
@@ -254,7 +253,6 @@ export const ContentProvider = ({ children }) => {
         </footer>`,
     },
   ];
-
   // Context values
   const values = {
     content,
@@ -270,12 +268,10 @@ export const ContentProvider = ({ children }) => {
     setIsGradient,
     componentData,
   };
-
   return (
     <ContentContext.Provider value={values}>{children}</ContentContext.Provider>
   );
 };
-
 // Custom hook for using the context
 export const useContent = () => {
   const context = useContext(ContentContext);
