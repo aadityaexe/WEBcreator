@@ -7,8 +7,8 @@ const SeeCreatedWebsite = () => {
   const { selectedComponents } = useContent();
 
   return (
-    <div className="min-h-screen pt-20 px-4 flex flex-col items-center">
-      <div className="w-full">
+    <section className="min-h-screen pt-20 px-4 flex flex-col items-center">
+      <div className="w-full ">
         {selectedComponents.length > 0 ? (
           selectedComponents.map((component, index) => (
             <div key={index} className="w-full">
@@ -20,16 +20,20 @@ const SeeCreatedWebsite = () => {
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-600">No components selected</p>
+          <p className="text-center text-gray-600 text-lg font-medium">
+            No components selected
+          </p>
         )}
       </div>
+
       <button
         onClick={() => navigate("/get-website-code")}
-        className="mt-8 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:to-pink-500"
+        className="mt-8 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl hover:from-purple-500 hover:to-pink-500 focus:outline-none focus:ring-4 focus:ring-purple-300"
+        aria-label="Get Website Code"
       >
         Get Website Code
       </button>
-    </div>
+    </section>
   );
 };
 
