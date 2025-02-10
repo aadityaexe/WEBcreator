@@ -1,6 +1,5 @@
 import { useContent } from "../../Store/ContentValues";
 import tryImage from "../../assets/try.png";
-
 const Hero1 = () => {
   const { colors, content, isGradient } = useContent();
 
@@ -8,8 +7,9 @@ const Hero1 = () => {
     <section
       className="flex flex-col-reverse md:flex-row items-center justify-between text-white min-h-screen p-6"
       style={{
-        background: isGradient 
-          ? colors?.gradient || "linear-gradient(to right, #ec4899, #1f2937, #111827)" // Default gradient
+        background: isGradient
+          ? colors?.gradient ||
+            "linear-gradient(to right, #ec4899, #1f2937, #111827)" // Default gradient
           : colors?.bg || "#111827", // Default solid background
       }}
     >
