@@ -14,6 +14,7 @@ import About1 from "../All-About-Section/About-1/About1";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../Store/ContentValues";
 import ColorPalette from "../components/ColorPalette";
+import FAQ2 from "../All-Faq-Section/Faq-2/Faq2";
 
 const ItemType = {
   HERO: "hero",
@@ -32,6 +33,7 @@ const HeroComponent3 = () => <Hero3 />;
 const AboutComponent = () => <About1 />;
 const RoadmapComponent = () => <Roadmap1 />;
 const FaqComponent = () => <FAQ />;
+const FaqComponent2 = () => <FAQ2 />;
 const FooterComponent = () => <Footer1 />;
 const SocialIconComponent = () => <SocialIcon1 />;
 const TokenomicsComponent = () => <Tokenomics1 />;
@@ -45,7 +47,8 @@ const components = [
   { id: 6, type: ItemType.TOKENOMICS, content: <TokenomicsComponent /> },
   { id: 7, type: ItemType.ROADMAP, content: <RoadmapComponent /> },
   { id: 8, type: ItemType.FAQ, content: <FaqComponent /> },
-  { id: 9, type: ItemType.FOOTER, content: <FooterComponent /> },
+  { id: 9, type: ItemType.FAQ, content: <FaqComponent2 /> },
+  { id: 10, type: ItemType.FOOTER, content: <FooterComponent /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
@@ -113,7 +116,9 @@ export default function SplitView() {
       if (existingIndex !== -1) {
         // Update existing component
         return prev.map((comp, index) =>
-          index === existingIndex ? { type: sectionType, content: item.content } : comp
+          index === existingIndex
+            ? { type: sectionType, content: item.content }
+            : comp
         );
       }
       // Add new component
@@ -138,13 +143,20 @@ export default function SplitView() {
     <DndProvider backend={HTML5Backend}>
       <div className="flex flex-col md:flex-row h-full pt-20">
         {/* Left Panel */}
-        <div className="w-full md:w-2/4 space-y-5 overflow-y-auto" style={{ maxHeight: "calc(100vh - 20px)" }}>
+        <div
+          className="w-full md:w-2/4 space-y-5 overflow-y-auto"
+          style={{ maxHeight: "calc(100vh - 20px)" }}
+        >
           {/* Components Section */}
           {Object.entries(groupedComponents).map(([type, items]) => (
             <div key={type} className="bg-gray-200 p-5 rounded-lg space-y-3">
               <h3 className="font-bold text-2xl capitalize">{type}</h3>
               {items.map((component) => (
-                <DraggableItem key={component.id} item={component} type={component.type} />
+                <DraggableItem
+                  key={component.id}
+                  item={component}
+                  type={component.type}
+                />
               ))}
             </div>
           ))}
@@ -152,13 +164,23 @@ export default function SplitView() {
         </div>
 
         {/* Right Panel */}
-        <div className="w-full md:w-2/4 overflow-y-auto" style={{ maxHeight: "calc(100vh - 20px)" }}>
+        <div
+          className="w-full md:w-2/4 overflow-y-auto"
+          style={{ maxHeight: "calc(100vh - 20px)" }}
+        >
           {Object.entries(sections).map(([sectionType]) => (
-            <DropZone key={sectionType} acceptType={sectionType} onDrop={(item) => handleDrop(item, sectionType)}>
+            <DropZone
+              key={sectionType}
+              acceptType={sectionType}
+              onDrop={(item) => handleDrop(item, sectionType)}
+            >
               {sections[sectionType]}
             </DropZone>
           ))}
-          <button onClick={handleSubmit} className="mt-5 w-full py-2 bg-blue-500 text-white rounded-lg">
+          <button
+            onClick={handleSubmit}
+            className="mt-5 w-full py-2 bg-blue-500 text-white rounded-lg"
+          >
             Submit
           </button>
         </div>
