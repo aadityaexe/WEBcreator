@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useContent } from "../Store/ContentValues";
 import ColorPalette from "../components/ColorPalette";
 import FAQ2 from "../All-Faq-Section/Faq-2/Faq2";
+
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
