@@ -14,10 +14,8 @@ const GetWebsiteCode = () => {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generated Website</title>
-  
 </head>
 <body>`;
-
   const pHtmlEnd = `
 </body>
 </html>`;
