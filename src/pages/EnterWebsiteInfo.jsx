@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useContent } from "../Store/ContentValues";
 import { useNavigate } from "react-router-dom";
 import { FaPlus, FaTrash } from "react-icons/fa";
-
 export default function EnterWebsiteInfo() {
   const navigate = useNavigate();
   const { run } = useContent();
