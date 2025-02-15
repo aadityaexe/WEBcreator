@@ -19,7 +19,6 @@ const GetWebsiteCode = () => {
   const pHtmlEnd = `
 </body>
 </html>`;
-
   // Filter and map selected components to retrieve matching data
   const matchedComponents = selectedComponents
     .map((comp) =>
