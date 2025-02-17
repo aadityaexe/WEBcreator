@@ -18,6 +18,7 @@ import FAQ2 from "../All-Faq-Section/Faq-2/Faq2";
 import Footer2 from "../All-Footer-Section/Footer-2/Footer2";
 import Footer4 from "../All-Footer-Section/Footer-4.jsx/Footer4";
 import Footer3 from "../All-Footer-Section/Footer-3/Footer3";
+import Footer5 from "../All-Footer-Section/Footer-5.jsx/Footer5";
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
@@ -40,7 +41,7 @@ const FooterComponent = () => <Footer1 />;
 const FooterComponent2 = () => <Footer2 />;
 const FooterComponent3 = () => <Footer3 />;
 const FooterComponent4 = () => <Footer4 />;
-
+const FooterComponent5 = () => <Footer5 />;
 const SocialIconComponent = () => <SocialIcon1 />;
 const TokenomicsComponent = () => <Tokenomics1 />;
 
@@ -58,7 +59,7 @@ const components = [
   { id: 11, type: ItemType.FOOTER, content: <FooterComponent2 /> },
   { id: 12, type: ItemType.FOOTER, content: <FooterComponent3 /> },
   { id: 13, type: ItemType.FOOTER, content: <FooterComponent4 /> },
-  { id: 14, type: ItemType.FOOTER, content: <FooterComponent2 /> },
+  { id: 14, type: ItemType.FOOTER, content: <FooterComponent5 /> },
 ];
 
 const DraggableItem = ({ item, type }) => {
