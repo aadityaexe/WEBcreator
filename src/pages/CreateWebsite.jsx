@@ -15,6 +15,10 @@ import { useNavigate } from "react-router-dom";
 import { useContent } from "../Store/ContentValues";
 import ColorPalette from "../components/ColorPalette";
 import FAQ2 from "../All-Faq-Section/Faq-2/Faq2";
+import Footer2 from "../All-Footer-Section/Footer-2/Footer2";
+import Footer4 from "../All-Footer-Section/Footer-4.jsx/Footer4";
+import Footer3 from "../All-Footer-Section/Footer-3/Footer3";
+import Footer5 from "../All-Footer-Section/Footer-5.jsx/Footer5";
 const ItemType = {
   HERO: "hero",
   ABOUT: "about",
@@ -34,6 +38,10 @@ const RoadmapComponent = () => <Roadmap1 />;
 const FaqComponent = () => <FAQ />;
 const FaqComponent2 = () => <FAQ2 />;
 const FooterComponent = () => <Footer1 />;
+const FooterComponent2 = () => <Footer2 />;
+const FooterComponent3 = () => <Footer3 />;
+const FooterComponent4 = () => <Footer4 />;
+const FooterComponent5 = () => <Footer5 />;
 const SocialIconComponent = () => <SocialIcon1 />;
 const TokenomicsComponent = () => <Tokenomics1 />;
 
@@ -48,6 +56,10 @@ const components = [
   { id: 8, type: ItemType.FAQ, content: <FaqComponent /> },
   { id: 9, type: ItemType.FAQ, content: <FaqComponent2 /> },
   { id: 10, type: ItemType.FOOTER, content: <FooterComponent /> },
+  { id: 11, type: ItemType.FOOTER, content: <FooterComponent2 /> },
+  { id: 12, type: ItemType.FOOTER, content: <FooterComponent3 /> },
+  { id: 13, type: ItemType.FOOTER, content: <FooterComponent4 /> },
+  { id: 14, type: ItemType.FOOTER, content: <FooterComponent5 /> },
 ];
 
 const DraggableItem = ({ item, type }) => {

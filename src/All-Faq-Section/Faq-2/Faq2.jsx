@@ -12,7 +12,7 @@ const FAQ2 = () => {
   return (
     <section
       id="faq"
-      className="py-20 text-center overflow-x-hidden"
+      className="py-20 text-center overflow-x-hidden w-full"
       style={{ background: colors.bg }}
     >
       <h2 className="text-6xl font-bold mb-10" style={{ color: colors.h1 }}>
