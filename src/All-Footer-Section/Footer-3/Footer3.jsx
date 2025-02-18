@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const Footer3 = () => {
-  return (
-    <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto text-center">
-        <div className="flex justify-center space-x-8 mb-4">
-          <a href="#" className="hover:text-blue-500">Home</a>
-          <a href="#about" className="hover:text-blue-500">About</a>
-          <a href="#services" className="hover:text-blue-500">Services</a>
-          <a href="#contact" className="hover:text-blue-500">Contact</a>
-        </div>
-        <p className="text-sm">&copy; 2025 Your Company. All Rights Reserved.</p>
-=======
 import { FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 import { useContent } from "../../Store/ContentValues";
 
@@ -69,7 +54,6 @@ const Footer3 = () => {
         >
           <FaGithub />
         </a>
->>>>>>> 8bb0ed480b398d84720bf6bd52d2e118649a9e5d
       </div>
     </footer>
   );
