@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import { FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
 import { useContent } from '../../Store/ContentValues';
-=======
-import { FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
-import { useContent } from "../../Store/ContentValues";
->>>>>>> fca1c1c8165b10ccde119414f843562112b69239
 
 const Footer3 = () => {
   const { colors } = useContent();
