@@ -46,9 +46,9 @@ import { useContent } from "../Store/ContentValues";
 import ColorPalette from "../components/ColorPalette";
 import FAQ2 from "../All-Faq-Section/Faq-2/Faq2";
 import Footer2 from "../All-Footer-Section/Footer-2/Footer2";
-import Footer4 from "../All-Footer-Section/Footer-4.jsx/Footer4";
+import Footer4 from "../All-Footer-Section/Footer-4/Footer4";
 import Footer3 from "../All-Footer-Section/Footer-3/Footer3";
-import Footer5 from "../All-Footer-Section/Footer-5.jsx/Footer5";
+import Footer5 from "../All-Footer-Section/Footer-5/Footer5";
 
 const ItemType = {
   HERO: "hero",
