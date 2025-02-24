@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useContent } from "../../Store/ContentValues";
@@ -44,7 +44,8 @@ const Home15 = () => {
       className="relative h-screen flex items-center justify-center text-center overflow-hidden"
       style={{
         background: isGradient
-          ? colors?.gradient || "linear-gradient(to bottom right, #1e3a8a, #9333ea)"
+          ? colors?.gradient ||
+            "linear-gradient(to bottom right, #1e3a8a, #9333ea)"
           : colors?.bg || "#111827",
       }}
     >
@@ -53,7 +54,9 @@ const Home15 = () => {
         ref={bgRef}
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${content?.hero?.bgImage || "/src/assets/parallax-bg.jpg"})`,
+          backgroundImage: `url(${
+            content?.hero?.bgImage || "/src/assets/parallax-bg.jpg"
+          })`,
         }}
       ></div>
 
@@ -75,7 +78,8 @@ const Home15 = () => {
           className="text-lg mt-4 max-w-lg"
           style={{ color: colors?.p || "#d1d5db" }}
         >
-          {content?.hero?.subtitle || `Explore a world of innovation with smooth parallax scrolling.`}
+          {content?.hero?.subtitle ||
+            `Explore a world of innovation with smooth parallax scrolling.`}
         </p>
       </div>
     </section>
