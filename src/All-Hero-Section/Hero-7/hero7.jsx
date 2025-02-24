@@ -1,5 +1,3 @@
-import React from 'react';
-
 // 1. Minimalistic Home Section
 export const Home6 = () => (
   <section className="bg-white py-20 px-8 text-center">
