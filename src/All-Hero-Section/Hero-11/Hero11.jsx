@@ -1,4 +1,3 @@
-import React from "react";
 import { useContent } from "../../Store/ContentValues";
 
 export const Home11 = () => {
@@ -9,7 +8,8 @@ export const Home11 = () => {
       className="py-20 px-8"
       style={{
         background: isGradient
-          ? colors?.gradient || "linear-gradient(to bottom right, #ec4899, #3b82f6, #10b981)"
+          ? colors?.gradient ||
+            "linear-gradient(to bottom right, #ec4899, #3b82f6, #10b981)"
           : colors?.bg || "#f3f4f6",
         color: colors?.text || "#111827",
       }}
