@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Token1 = () => {
   return (
     <section className="py-20 bg-gray-100">
