@@ -1,5 +1,4 @@
 import { useContent } from "../../Store/ContentValues";
-
 export const Home10 = () => {
   const { colors } = useContent();
 
